@@ -1,9 +1,7 @@
-import { Model, Schema, model } from 'mongoose'
-import { IUser } from './users.interface'
+import { Schema, model } from 'mongoose'
+import { IUser, UserModel } from './user.interface'
 
-// Create a new Model type that knows about IUserMethods...
 //object r poriborte Record
-type UserModel = Model<IUser, Record<string, unknown>>
 const userSchema = new Schema<IUser>(
   {
     id: { type: String, required: true, unique: true },
@@ -14,5 +12,5 @@ const userSchema = new Schema<IUser>(
   { timestamps: true }
 )
 
-// 3. Create a Model.
+// Create a Model.
 export const User = model<IUser, UserModel>('User', userSchema)

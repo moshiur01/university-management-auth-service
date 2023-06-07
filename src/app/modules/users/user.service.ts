@@ -1,10 +1,8 @@
-//create book into database
-
 import config from '../../../config/index'
 import ApiError from '../../../errors/ApiError'
 import { generateUserId } from './user.utlis'
-import { IUser } from './users.interface'
-import { User } from './users.model'
+import { IUser } from './user.interface'
+import { User } from './user.model'
 
 //create user into database
 const createUser = async (user: IUser): Promise<IUser | null> => {
@@ -24,6 +22,6 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
   return CreatedUser
 }
 
-export default {
+export const UserService = {
   createUser,
 }
