@@ -1,6 +1,7 @@
 //create book into database
 
 import config from '../../../config/index'
+import ApiError from '../../../errors/ApiError'
 import { generateUserId } from './user.utlis'
 import { IUser } from './users.interface'
 import { User } from './users.model'
@@ -17,7 +18,7 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
   const CreatedUser = await User.create(user)
 
   if (!CreatedUser) {
-    throw new Error('Failed to Create User')
+    throw new ApiError(400, 'Failed to Create User')
   }
 
   return CreatedUser

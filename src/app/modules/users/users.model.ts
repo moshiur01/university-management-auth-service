@@ -2,7 +2,8 @@ import { Model, Schema, model } from 'mongoose'
 import { IUser } from './users.interface'
 
 // Create a new Model type that knows about IUserMethods...
-type UserModel = Model<IUser, object>
+//object r poriborte Record
+type UserModel = Model<IUser, Record<string, unknown>>
 const userSchema = new Schema<IUser>(
   {
     id: { type: String, required: true, unique: true },
