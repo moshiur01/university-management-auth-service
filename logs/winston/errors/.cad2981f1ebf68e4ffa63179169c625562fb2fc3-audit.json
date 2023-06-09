@@ -6,19 +6,19 @@
     "auditLog": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\.cad2981f1ebf68e4ffa63179169c625562fb2fc3-audit.json",
     "files": [
         {
-            "date": 1686119067075,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-07-06-12-error.log",
-            "hash": "26f9b0c69455c8b3fd13df4b16df8294380d853878fe1416fcd9a072d70d206b"
+            "date": 1686291473126,
+            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-09-06-12-error.log",
+            "hash": "8224a5468dd963097454d79487bc23e8f7f4563bcac52f857bc1d408ddbac783"
         },
         {
-            "date": 1686121991074,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-07-06-13-error.log",
-            "hash": "db2c05c6877490626b58dab5f5b13510e965ebfd29cf8a3753c8f3e24c0b6338"
+            "date": 1686311976211,
+            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-09-06-17-error.log",
+            "hash": "982676bfd505e73f7e7db96de987e9e82be772ddce63d1fdb564923352243308"
         },
         {
-            "date": 1686139515265,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-07-06-18-error.log",
-            "hash": "54e209a2f2323bc17979ee55e8facfc6268bafc47e64b1d6d4fed973322c1ec4"
+            "date": 1686312114423,
+            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-09-06-18-error.log",
+            "hash": "72e2cd9608b1a6da07a25f9c07f6cc32e81f192d0ee2b2f4bd4af605b8e53b54"
         }
     ],
     "hashType": "sha256"

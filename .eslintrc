@@ -14,7 +14,7 @@
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
     // to enforce using type for object type definitions, can be type or interface
-    //"no-console": "error",
+    // "no-console": "warn",
     "no-undef": "error",
     "no-unused-expressions": "error",
     "no-unreachable": "error",
