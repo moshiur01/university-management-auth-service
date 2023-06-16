@@ -20,17 +20,22 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   let message = 'Something Went Wrong !';
   let errorMessages: IGenericErrorMessage[] = [];
 
+  //ValidationError
   if (error?.name === 'ValidationError') {
     const simplifiedError = handleValidationError(error);
     statusCode = simplifiedError?.statusCode;
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
-  } else if (error instanceof ZodError) {
+  }
+  //zod error
+  else if (error instanceof ZodError) {
     const simplifiedError = handleZodError(error);
     statusCode = simplifiedError?.statusCode;
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
-  } else if (error instanceof ApiError) {
+  }
+  //instance of api error
+  else if (error instanceof ApiError) {
     statusCode = error?.statusCode;
     message = error?.message;
     errorMessages = error?.message
@@ -41,7 +46,9 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
           },
         ]
       : [];
-  } else if (error instanceof Error) {
+  }
+  //instance of internal js error
+  else if (error instanceof Error) {
     message = error?.message;
     errorMessages = error?.message
       ? [
