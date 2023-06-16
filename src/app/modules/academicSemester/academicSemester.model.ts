@@ -8,6 +8,8 @@ import {
   academicSemesterMonths,
   academicSemesterTitles,
 } from './academicSemester.constant';
+import status from 'http-status';
+import ApiError from '../../../errors/ApiError';
 
 const academicSemesterSchema = new Schema<IAcademicSemester>(
   {
@@ -27,6 +29,26 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
   },
   { timestamps: true }
 );
+
+//handling same year and same semester issue
+
+//prehook => data save korar age hook use kora
+
+academicSemesterSchema.pre('save', async function (next) {
+  const isExist = await AcademicSemester.findOne({
+    title: this.title,
+    year: this.year,
+  });
+
+  if (isExist) {
+    throw new ApiError(
+      status.CONFLICT,
+      'This Academic Semester is already Exist'
+    );
+  } else {
+    next();
+  }
+});
 
 // Create a Model.
 export const AcademicSemester = model<IAcademicSemester, AcademicSemesterModel>(

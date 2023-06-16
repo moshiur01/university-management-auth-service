@@ -10,7 +10,6 @@ import handleZodError from '../../errors/handleZodError';
 
 //jodi express r req pattern error, req, res,next hoy tahole take errorRequestHandler bole
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
-  console.log('Error from zod error', error);
   config.env === 'development'
     ? console.log('🚀 global Error development Handler =>  ', error)
     : ErrorLogger.error('🚀 global Error Handler =>  ', error);
