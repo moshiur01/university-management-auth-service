@@ -11,10 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // application routes
-// app.use('/api/v1/users', UserRoutes.router);
-// app.use('/api/v1/academic-semesters', AcademicSemesterRoutes);
-
 app.use('/api/v1', routes);
+
 //testing
 // app.get('/', (req: Request, res: Response, next: NextFunction) => {
 //   throw new ApiError(400, 'ulala');

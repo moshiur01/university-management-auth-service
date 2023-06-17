@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { AcademicSemesterService } from './academicSemester.service';
 import catchAsync from '../../../shared/catchAsync';
+import sendResponse from '../../../shared/sentResponse';
+import httpStatus from 'http-status';
 
 const createSemester = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -9,9 +11,10 @@ const createSemester = catchAsync(
       academicSemesterData
     );
     next();
-    res.status(200).json({
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
       success: true,
-      massage: ' Academic Semester created successfully',
+      message: 'Academic Semester created successfully',
       data: result,
     });
   }
