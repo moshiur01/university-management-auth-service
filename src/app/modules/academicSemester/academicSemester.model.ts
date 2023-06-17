@@ -8,7 +8,7 @@ import {
   academicSemesterMonths,
   academicSemesterTitles,
 } from './academicSemester.constant';
-import status from 'http-status';
+import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 
 const academicSemesterSchema = new Schema<IAcademicSemester>(
@@ -42,7 +42,7 @@ academicSemesterSchema.pre('save', async function (next) {
 
   if (isExist) {
     throw new ApiError(
-      status.CONFLICT,
+      httpStatus.CONFLICT,
       'This Academic Semester is already Exist'
     );
   } else {
