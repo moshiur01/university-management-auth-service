@@ -7,6 +7,7 @@ import ApiError from '../../errors/ApiError';
 import { ErrorLogger } from '../../shared/logger';
 import { ZodError } from 'zod';
 import handleZodError from '../../errors/handleZodError';
+import handleCastError from '../../errors/handleCastError';
 
 //jodi express r req pattern error, req, res,next hoy tahole take errorRequestHandler bole
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
@@ -26,6 +27,7 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
   }
+
   //zod error
   else if (error instanceof ZodError) {
     const simplifiedError = handleZodError(error);
@@ -33,6 +35,16 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
   }
+
+  //cast Error
+  else if (error?.name === 'CastError') {
+    // res.status(200).json({ error });
+    const simplifiedError = handleCastError(error);
+    statusCode = simplifiedError?.statusCode;
+    message = simplifiedError?.message;
+    errorMessages = simplifiedError?.errorMessages;
+  }
+
   //instance of api error
   else if (error instanceof ApiError) {
     statusCode = error?.statusCode;

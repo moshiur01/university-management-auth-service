@@ -1,6 +1,9 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
-import { academicSemesterTitleCodeMapper } from './academicSemester.constant';
+import {
+  academicSemesterSearchableFields,
+  academicSemesterTitleCodeMapper,
+} from './academicSemester.constant';
 import {
   IAcademicSemester,
   IAcademicSemesterFilters,
@@ -11,6 +14,7 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { paginationHelper } from '../../../helpers/paginationHelper';
 import { SortOrder } from 'mongoose';
 
+//create a semester
 const createSemester = async (
   payload: IAcademicSemester
 ): Promise<IAcademicSemester> => {
@@ -23,15 +27,13 @@ const createSemester = async (
   }
 };
 
+//get all semester with conditions or without conditions
 const getAllSemesters = async (
   filters: IAcademicSemesterFilters,
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IAcademicSemester[]>> => {
   //search term for the filtering
-  const { searchTerm } = filters;
-
-  //searchable fields array
-  const academicSemesterSearchableFields = ['title', 'code', 'year'];
+  const { searchTerm, ...filersData } = filters;
 
   //combine all the regex search related field in a an empty array
   const andConditions = [];
@@ -42,6 +44,15 @@ const getAllSemesters = async (
           $regex: searchTerm,
           $options: 'i',
         },
+      })),
+    });
+  }
+
+  //exact filtering
+  if (Object.keys(filersData).length) {
+    andConditions.push({
+      $and: Object.entries(filersData).map(([field, value]) => ({
+        [field]: value,
       })),
     });
   }
@@ -63,6 +74,7 @@ const getAllSemesters = async (
   // ];
 
   //pagination term
+
   const { page, limit, skip, sortBy, sortOrder } =
     paginationHelper.calculatePagination(paginationOptions);
 
@@ -72,10 +84,15 @@ const getAllSemesters = async (
     sortConditions[sortBy] = sortOrder;
   }
 
-  const result = await AcademicSemester.find({ $and: andConditions })
+  //cheek either the condition is empty or not
+  const whereConditions =
+    andConditions.length > 0 ? { $and: andConditions } : {};
+
+  const result = await AcademicSemester.find(whereConditions)
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
+
   const total = await AcademicSemester.countDocuments();
   return {
     meta: {
@@ -87,7 +104,15 @@ const getAllSemesters = async (
   };
 };
 
+//get a single semester
+const getSingleSemester = async (
+  id: string
+): Promise<IAcademicSemester | null> => {
+  const result = await AcademicSemester.findById(id);
+  return result;
+};
 export const AcademicSemesterService = {
   createSemester,
   getAllSemesters,
+  getSingleSemester,
 };

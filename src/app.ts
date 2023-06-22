@@ -30,8 +30,8 @@ app.use((req: Request, res: Response) => {
     message: 'Not Found',
     errorMessages: [
       {
-        Path: req.originalUrl,
-        message: `${req.originalUrl} is not found`,
+        path: req.originalUrl,
+        message: 'API Not Found',
       },
     ],
   });
