@@ -124,6 +124,11 @@
             "date": 1687755605816,
             "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-26-06-11-error.log",
             "hash": "01407de6a728c5f7aba220e4fad4912c792f1434a5833527ed65651dea8deb1f"
+        },
+        {
+            "date": 1687762100061,
+            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-26-06-12-error.log",
+            "hash": "ce14570834c17573c9cd8e5e8cac3944133d619ef74ecf314fcb3604a7ae40a4"
         }
     ],
     "hashType": "sha256"
