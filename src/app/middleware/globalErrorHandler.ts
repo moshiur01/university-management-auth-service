@@ -10,7 +10,7 @@ import handleZodError from '../../errors/handleZodError';
 import handleCastError from '../../errors/handleCastError';
 
 //jodi express r req pattern error, req, res,next hoy tahole take errorRequestHandler bole
-const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
+const globalErrorHandler: ErrorRequestHandler = (error, req, res) => {
   config.env === 'development'
     ? console.log('🚀 global Error development Handler =>  ', error)
     : ErrorLogger.error('🚀 global Error Handler =>  ', error);
@@ -77,7 +77,6 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     errorMessages,
     stack: config.env !== 'production' ? error.stack : undefined,
   });
-  next();
 };
 
 export default globalErrorHandler;
