@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { ErrorRequestHandler } from 'express';
+import { ErrorRequestHandler, NextFunction } from 'express';
 import config from '../../config';
 import { IGenericErrorMessage } from '../../interfaces/error';
 import handleValidationError from '../../errors/handleValidationError';
@@ -10,7 +10,12 @@ import handleZodError from '../../errors/handleZodError';
 import handleCastError from '../../errors/handleCastError';
 
 //jodi express r req pattern error, req, res,next hoy tahole take errorRequestHandler bole
-const globalErrorHandler: ErrorRequestHandler = (error, req, res) => {
+const globalErrorHandler: ErrorRequestHandler = (
+  error,
+  req,
+  res,
+  next: NextFunction
+) => {
   config.env === 'development'
     ? console.log('🚀 global Error development Handler =>  ', error)
     : ErrorLogger.error('🚀 global Error Handler =>  ', error);

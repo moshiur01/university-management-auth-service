@@ -48,15 +48,6 @@ const getAllSemesters = async (
     });
   }
 
-  //exact filtering
-  if (Object.keys(filersData).length) {
-    andConditions.push({
-      $and: Object.entries(filersData).map(([field, value]) => ({
-        [field]: value,
-      })),
-    });
-  }
-
   // const andCondition = [
   //   {
   //     $or: [
@@ -72,6 +63,15 @@ const getAllSemesters = async (
   //     ],
   //   },
   // ];
+
+  //exact filtering
+  if (Object.keys(filersData).length) {
+    andConditions.push({
+      $and: Object.entries(filersData).map(([field, value]) => ({
+        [field]: value,
+      })),
+    });
+  }
 
   //pagination term
 
