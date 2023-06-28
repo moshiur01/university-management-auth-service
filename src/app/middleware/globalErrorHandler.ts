@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-expressions */
 import { ErrorRequestHandler, NextFunction } from 'express';
 import config from '../../config';
