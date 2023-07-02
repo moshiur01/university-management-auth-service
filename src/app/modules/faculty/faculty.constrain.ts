@@ -22,6 +22,7 @@ export const facultySearchableFields = [
   'name.firstName',
   'name.middleName',
   'name.lastName',
+  'emergencyContactNo',
 ];
 
 export const facultyConstant = {

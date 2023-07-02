@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SortOrder } from 'mongoose';
 import { paginationHelper } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
@@ -5,14 +6,17 @@ import { IPaginationOptions } from '../../../interfaces/pagination';
 import { facultySearchableFields } from './faculty.constrain';
 import { IFaculty, IFacultyFilters } from './faculty.interface';
 import { Faculty } from './faculty.model';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
 
 const getAllFaculties = async (
   filters: IFacultyFilters,
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IFaculty[]>> => {
   const { searchTerm, ...filtersData } = filters;
-
   const andConditions = [];
+
+  //partial match => searching
   if (searchTerm) {
     andConditions.push({
       $or: facultySearchableFields.map(field => ({
@@ -24,7 +28,7 @@ const getAllFaculties = async (
     });
   }
 
-  //exact filtering
+  // filtering => exact match
   if (Object.keys(filtersData).length) {
     andConditions.push({
       $and: Object.entries(filtersData).map(([field, value]) => ({
@@ -73,7 +77,46 @@ const getSingleFaculty = async (id: string): Promise<IFaculty | null> => {
   return result;
 };
 
+//update faculty data
+const updateFaculty = async (
+  id: string,
+  payload: Partial<IFaculty>
+): Promise<IFaculty | null> => {
+  const isExist = await Faculty.findOne({ id });
+
+  console.log(id);
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Student not found !');
+  }
+
+  const { name, ...facultyData } = payload;
+
+  const updatedFacultyData: Partial<IFaculty> = { ...facultyData };
+
+  /* const name ={
+    firstName: 'Moshiur',  
+    middleName:'Rahman',
+    lastName: 'Akash => All'
+  }
+*/
+  // dynamically handling
+
+  if (name && Object.keys(name).length > 0) {
+    Object.keys(name).forEach(key => {
+      const nameKey = `name.${key}` as keyof Partial<IFaculty>;
+      (updatedFacultyData as any)[nameKey] = name[key as keyof typeof name];
+    });
+  }
+
+  const result = await Faculty.findOneAndUpdate({ id }, updatedFacultyData, {
+    new: true,
+  });
+  return result;
+};
+
 export const FacultyService = {
   getAllFaculties,
   getSingleFaculty,
+  updateFaculty,
 };
