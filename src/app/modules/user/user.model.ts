@@ -1,7 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { IUser, UserModel } from './user.interface';
 
-//object r poriborte Record
 const userSchema = new Schema<IUser>(
   {
     id: { type: String, required: true, unique: true },
@@ -11,11 +10,11 @@ const userSchema = new Schema<IUser>(
       type: Schema.Types.ObjectId,
       ref: 'Student',
     },
-    //do the faculty and admin later
-    // faculty: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Faculty',
-    // },
+    faculty: {
+      type: Schema.Types.ObjectId,
+      ref: 'Faculty',
+    },
+    //do it for admin later
     // admin: {
     //   type: Schema.Types.ObjectId,
     //   ref: 'Admin',

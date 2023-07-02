@@ -5,9 +5,11 @@ import { AcademicSemester } from '../academicSemester/academicSemester.model';
 import { IStudent } from '../student/student.interface';
 import { IUser } from './user.interface';
 import { User } from './user.model';
-import { generateStudentId } from './user.utlis';
+import { generateFacultyId, generateStudentId } from './user.utlis';
 import { Student } from '../student/student.model';
 import httpStatus from 'http-status';
+import { IFaculty } from '../faculty/faculty.interface';
+import { Faculty } from '../faculty/faculty.model';
 
 //create  new student into database
 const createStudent = async (
@@ -21,7 +23,6 @@ const createStudent = async (
 
   //set student role
   user.role = 'student';
-
   //get the specific academic Semester using the id get from student object which is come from the controller
   const academicSemester = await AcademicSemester.findById(
     student.academicSemester
@@ -92,6 +93,79 @@ const createStudent = async (
   return newUserAllData;
 };
 
+const createFaculty = async (
+  faculty: IFaculty,
+  user: IUser
+): Promise<IUser | null> => {
+  //if the user don't give  a password then take the default password
+  if (!user.password) {
+    user.password = config.default_student_pass as string;
+  }
+
+  //set faculty role
+  user.role = 'faculty';
+
+  //add all the data for new user
+  let newUserAllData = null;
+
+  // start the session
+  const session = await mongoose.startSession();
+
+  try {
+    session.startTransaction();
+
+    //generate faculty Id
+    const id = await generateFacultyId();
+
+    //assign the id to user and faculty object
+
+    user.id = id;
+    faculty.id = id;
+
+    // create new faculty using session and it return array
+    const newFaculty = await Faculty.create([faculty], { session });
+
+    if (!newFaculty.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to Create Faculty');
+    }
+    //set faculty ===>  _id into user.faculty
+    user.faculty = newFaculty[0]._id;
+
+    //create new user
+    const newUser = await User.create([user], { session });
+
+    if (!newUser.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to Create User');
+    }
+
+    newUserAllData = newUser[0];
+
+    await session.commitTransaction();
+    await session.endSession();
+  } catch (error) {
+    await session.abortTransaction();
+    await session.endSession();
+    throw error;
+  }
+
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'faculty',
+      populate: [
+        {
+          path: 'academicDepartment',
+        },
+        {
+          path: 'academicFaculty',
+        },
+      ],
+    });
+  }
+
+  return newUserAllData;
+};
+
 export const UserService = {
   createStudent,
+  createFaculty,
 };
