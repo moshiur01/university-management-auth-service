@@ -55,3 +55,27 @@ export const generateFacultyId = async (): Promise<string> => {
 
   return incrementedId;
 };
+
+//=======generate admin id ===========//
+
+//get the last admin id
+export const findLastAdminId = async (): Promise<string | undefined> => {
+  const lastAdmin = await User.findOne({ role: 'admin' }, { id: 1, _id: 0 })
+    .sort({
+      createdAt: -1,
+    })
+    .lean();
+
+  return lastAdmin?.id ? lastAdmin.id.substring(2) : undefined;
+};
+
+//generate admin id=> A-00001
+export const generateAdminId = async (): Promise<string> => {
+  const currentId =
+    (await findLastAdminId()) || (0).toString().padStart(5, '0');
+  let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, '0');
+  incrementedId = `A-${incrementedId}`;
+  console.log(incrementedId);
+
+  return incrementedId;
+};
