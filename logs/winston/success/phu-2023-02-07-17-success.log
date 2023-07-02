@@ -2,131 +2,119 @@
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:20:56.695Z'
+  timestamp: '2023-07-02T11:01:32.887Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:20:56.702Z'
+  timestamp: '2023-07-02T11:01:32.895Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:29:50.509Z'
+  timestamp: '2023-07-02T11:02:42.427Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:29:50.518Z'
+  timestamp: '2023-07-02T11:02:42.435Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:46:35.226Z'
+  timestamp: '2023-07-02T11:03:43.317Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:46:35.234Z'
+  timestamp: '2023-07-02T11:03:43.325Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:46:43.609Z'
+  timestamp: '2023-07-02T11:10:32.415Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:46:43.622Z'
+  timestamp: '2023-07-02T11:10:32.424Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:46:50.187Z'
+  timestamp: '2023-07-02T11:10:35.112Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:46:50.195Z'
+  timestamp: '2023-07-02T11:10:35.119Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:47:02.125Z'
+  timestamp: '2023-07-02T11:11:03.162Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:47:02.134Z'
+  timestamp: '2023-07-02T11:11:03.170Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:47:04.399Z'
+  timestamp: '2023-07-02T11:11:29.241Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:47:04.407Z'
+  timestamp: '2023-07-02T11:11:29.249Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:50:37.492Z'
+  timestamp: '2023-07-02T11:11:40.970Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:50:37.500Z'
+  timestamp: '2023-07-02T11:11:40.978Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:52:01.983Z'
+  timestamp: '2023-07-02T11:11:44.154Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:52:01.991Z'
+  timestamp: '2023-07-02T11:11:44.162Z'
 }
 {
   message: 'DB Connection Done',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:52:19.114Z'
+  timestamp: '2023-07-02T11:13:18.287Z'
 }
 {
   message: 'Application listening on port 5000',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-07-01T09:52:19.122Z'
-}
-{
-  message: 'DB Connection Done',
-  level: 'info',
-  label: 'right meow!',
-  timestamp: '2023-07-01T09:53:12.296Z'
-}
-{
-  message: 'Application listening on port 5000',
-  level: 'info',
-  label: 'right meow!',
-  timestamp: '2023-07-01T09:53:12.304Z'
+  timestamp: '2023-07-02T11:13:18.294Z'
 }

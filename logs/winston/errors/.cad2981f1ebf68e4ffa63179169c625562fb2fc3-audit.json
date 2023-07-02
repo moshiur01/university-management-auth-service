@@ -6,79 +6,9 @@
     "auditLog": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\.cad2981f1ebf68e4ffa63179169c625562fb2fc3-audit.json",
     "files": [
         {
-            "date": 1688133260500,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-30-06-19-error.log",
-            "hash": "4fab1beb05befe87ebf05dae31e41bb8a11cc47358cd04a844d4b8d33a7160af"
-        },
-        {
-            "date": 1688134811329,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-30-06-20-error.log",
-            "hash": "13e733417438560796397612e553c96609442b6d09d864af75368078099cbfd4"
-        },
-        {
-            "date": 1688146620634,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-30-06-23-error.log",
-            "hash": "36bc3f4cb9dc234e4555f0df1bce06e9aac8a00f732187f7064a39b2d068dbe2"
-        },
-        {
-            "date": 1688148535079,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-00-error.log",
-            "hash": "f6c68baa9f913f254c8c3e0e5ebd6897542e764a3aedb22d4eae0bb530ff8406"
-        },
-        {
-            "date": 1688188352858,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-11-error.log",
-            "hash": "c3c844ab9264eb28cc249a827b12849f8c81c1fe2625ef4afed3505f9a5bca01"
-        },
-        {
-            "date": 1688191467749,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-12-error.log",
-            "hash": "c81fef8dcf925f44f014bedb7135a1269286ff13859e83e92cff9919f3bad870"
-        },
-        {
-            "date": 1688194837947,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-13-error.log",
-            "hash": "435383d30ed96fb27efaae2364b1cbaecc8f238f23ec4b59df7c9f871ad063aa"
-        },
-        {
-            "date": 1688198450907,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-14-error.log",
-            "hash": "eaa54f2b9d572b39413fc5c4d19352d1b6324aa3aa2818c915489164f9e6c922"
-        },
-        {
-            "date": 1688203254709,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-15-error.log",
-            "hash": "67247b481ff42ecb4dc6872b1334c786295deb5957a6fd81a451d24731136ee5"
-        },
-        {
-            "date": 1688223425815,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-20-error.log",
-            "hash": "0da45f6cbe3a0d9a4ea24ece564dcd787fbf98258a1cce1b63129d32c361520e"
-        },
-        {
-            "date": 1688223900123,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-21-error.log",
-            "hash": "717e394d9198b1bbf2722832845c312e617bc349d5e2e5f99eff984c13b7f445"
-        },
-        {
-            "date": 1688230156136,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-22-error.log",
-            "hash": "42d9ca47527633ff6a6dd45d42b76c8162fe6a723b9342ed29f9d717b5550404"
-        },
-        {
-            "date": 1688231893858,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-01-07-23-error.log",
-            "hash": "b72d483ac4310b001894ee32829f01323213098d26955038a85f31fad5e8549b"
-        },
-        {
-            "date": 1688278158600,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-02-07-12-error.log",
-            "hash": "313f3f0f1fbc799fac82517cfdeb9ecc9b0b655685ad22ccbd6cf320fbff0b7d"
-        },
-        {
-            "date": 1688295445477,
-            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-02-07-16-error.log",
-            "hash": "1272d587a09205ed8ec1cd27ffbd561b1403ed58d6b25fbad29a6f8e562a2e46"
+            "date": 1688295692185,
+            "name": "E:\\P hero level 2\\Misson 03 Be a Backend Brainiac Mission\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-02-07-17-error.log",
+            "hash": "80ea2679f97a8570ef175c3ded1f05f800d8bdea3545a3161da42843ab65e034"
         }
     ],
     "hashType": "sha256"
