@@ -99,7 +99,7 @@ const createFaculty = async (
 ): Promise<IUser | null> => {
   //if the user don't give  a password then take the default password
   if (!user.password) {
-    user.password = config.default_student_pass as string;
+    user.password = config.default_faculty_pass as string;
   }
 
   //set faculty role
