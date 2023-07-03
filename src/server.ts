@@ -10,7 +10,7 @@ process.on('uncaughtException', error => {
 });
 
 // process.on('SIGTERM', () => {
-//   logger.info('SIGTERM  is received')
+//   //loger.info('SIGTERM  is received')
 //   if (server) {
 //     server.close()
 //   }

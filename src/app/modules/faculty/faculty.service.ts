@@ -85,8 +85,6 @@ const updateFaculty = async (
 ): Promise<IFaculty | null> => {
   const isExist = await Faculty.findOne({ id });
 
-  console.log(id);
-
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Faculty not found !');
   }

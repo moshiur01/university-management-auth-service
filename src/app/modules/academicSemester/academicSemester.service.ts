@@ -131,7 +131,7 @@ const updateSemester = async (
   return result;
 };
 
-//update semester
+//delete semester
 const deleteSemester = async (
   id: string
 ): Promise<IAcademicSemester | null> => {
