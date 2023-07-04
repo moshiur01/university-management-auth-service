@@ -46,3 +46,27 @@
   label: 'right meow!',
   timestamp: '2023-07-04T07:10:36.260Z'
 }
+{
+  message: 'DB Connection Done',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-07-04T07:13:19.469Z'
+}
+{
+  message: 'Application listening on port 5000',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-07-04T07:13:19.477Z'
+}
+{
+  message: 'DB Connection Done',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-07-04T07:22:14.814Z'
+}
+{
+  message: 'Application listening on port 5000',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-07-04T07:22:14.822Z'
+}
