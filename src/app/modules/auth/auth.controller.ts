@@ -34,12 +34,12 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthService.refreshToken(refreshToken);
 
   //set refresh token options
-  const cookeOptions = {
+  const cookieOptions = {
     secure: config.env === 'production',
     httpOnly: true,
   };
   //set refresh token into cookies
-  res.cookie('refreshToken', refreshToken, cookeOptions);
+  res.cookie('refreshToken', refreshToken, cookieOptions);
 
   sendResponse<IRefreshTokenResponse>(res, {
     statusCode: httpStatus.OK,
