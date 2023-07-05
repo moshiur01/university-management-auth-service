@@ -39,7 +39,6 @@ userSchema.methods.isUserExists = async function (
     { id },
     { id: 1, role: 1, needsPasswordChange: 1, password: 1 } //need role to identify the user role
   ).lean();
-
   return user;
 };
 
