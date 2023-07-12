@@ -2,7 +2,7 @@ import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import { JwtPayload, Secret } from 'jsonwebtoken';
 import { User } from '../user/user.model';
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 import {
   ILoginUser,
   ILoginUserResponse,
@@ -28,7 +28,7 @@ const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   //check password
   if (
     isUserExist.password &&
-    !user.isPasswordMatch(password, isUserExist.password)
+    !(await user.isPasswordMatch(password, isUserExist.password))
   ) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Password is incorrect');
   }
@@ -102,7 +102,13 @@ const updatePassword = async (
   //create User Instance
   const user = new User();
 
-  const isUserExist = await user.isUserExists(userData?.userId);
+  // checking the user
+  // const isUserExist = await user.isUserExists(userData?.userId);
+
+  //alternative way
+  const isUserExist = await User.findOne({ id: userData?.userId }).select(
+    '+password'
+  );
 
   if (!isUserExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User Does Not Exists');
@@ -111,24 +117,36 @@ const updatePassword = async (
   //checking old password
   if (
     isUserExist.password &&
-    !user.isPasswordMatch(oldPassword, isUserExist.password)
+    !(await user.isPasswordMatch(oldPassword, isUserExist.password))
   ) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Old Password is incorrect');
   }
 
-  //hash password before saving
-  const newHashPassword = await bcrypt.hash(
-    newPassword,
-    Number(config.bcrypt_salt_rounds)
-  );
+  //========way 01 =========//
 
-  //update password
-  const updatedData = {
-    password: newHashPassword,
-    needsPasswordChange: false,
-    passwordChangedAt: new Date(),
-  };
-  await User.findByIdAndUpdate({ id: userData?.userId }, updatedData);
+  // //hash password before saving
+  // const newHashPassword = await bcrypt.hash(
+  //   newPassword,
+  //   Number(config.bcrypt_salt_rounds)
+  // );
+
+  // //update password
+  // const updatedData = {
+  //   password: newHashPassword,
+  //   needsPasswordChange: false,
+  //   passwordChangedAt: new Date(),
+  // };
+  // await User.findByIdAndUpdate({ id: userData?.userId }, updatedData);
+
+  //========way 02 =========//
+
+  //update data before saving
+
+  isUserExist.password = newPassword; //we don't need to hash the password because pre method hash the password
+  isUserExist.needsPasswordChange = false;
+
+  //updating using save()
+  isUserExist.save();
 };
 export const AuthService = {
   loginUser,
